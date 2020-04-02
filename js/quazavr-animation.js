@@ -11,7 +11,9 @@ function animation() {
             spike3 = "#spike3",
             spike4 = "#spike4",
             spike5 = "#spike5",
-            spike6 = "#spike6"
+            spike6 = "#spike6",
+            eye = "#eye",
+            eyeLid = "eyeLid"
 
     const S = .17
 
@@ -156,6 +158,13 @@ function animation() {
             })
             .yoyo(true)
 
+// Eye blinking animation
+
+    const eyeTL = new TimelineMax({repeat:-1,repeatDelay:2})
+    .from("#eyeLid",.2,{attr:{height:0}})
+    .to("#eye",.2,{scaleY:-0.1, transformOrigin:"50% 50%"},0)
+    .to("#eye",.1,{scaleY:1, transformOrigin:"50% 50%"},"-=0.1")
+
 // Checks animation
 
     const tl = gsap.timeline({repeat: -1})
@@ -163,7 +172,7 @@ function animation() {
             tl.to("#checkMark3", 1, { opacity: 0, duration: 1 })
             tl.to("#checkMark2", 1, { opacity: 0, duration: 1 })
             tl.to("#checkMark1", 1, { opacity: 0, duration: 1 })
-            tl.to("#checkMark1", 1, { opacity: 1, delay: 0.1 })
+            tl.to("#checkMark1", 1, { opacity: 1})
             tl.to("#checkMark2", 1, { opacity: 1, duration: 1 })
             tl.to("#checkMark3", 1, { opacity: 1, duration: 1 })
 
