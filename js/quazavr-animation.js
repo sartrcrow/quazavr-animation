@@ -4,6 +4,7 @@ function animation() {
             rightFlipper = "#rightFlipper",
             rightWhisker = "#rightWhisker",
             leftWhisker = "#leftWhisker",
+            spaceGuy = "#spaceGuy",
             quazavr = "#quazavr",
             spike1 = "#spike1",
             spike2 = "#spike2",
@@ -14,7 +15,7 @@ function animation() {
 
     const S = .17
 
-    // Flippers animation
+// Flippers animation
 
     const leftFlipperTL = gsap
           .timeline({
@@ -22,49 +23,49 @@ function animation() {
               defaults: { transformOrigin: "100% 0%", ease: "none", duration: S * 2 }
           })
           .to(leftFlipper, { 
-              rotate: 10,
+              rotate: 15,
               duration: 0.9,
          })
           .yoyo(true)
     
-          const rightFlipperTl = gsap
+    const rightFlipperTl = gsap
           .timeline({
               repeat: -1,
               defaults: { transformOrigin: "100% 0", ease: "none", duration: S * 2 }
           })
           .to(rightFlipper, { 
-              rotate: -10,
+              rotate: -15,
               duration: 0.9,
          })
           .yoyo(true)
 
-          // SpaceGuy whiskers animation
+// SpaceGuy whiskers animation
 
-          const rightWhiskerTl = gsap
+    const rightWhiskerTl = gsap
           .timeline({
               repeat: -1,
-              defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 2 }
+              defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 4 }
           })
           .to(rightWhisker, { 
-              rotate: -8,
+              rotate: 15,
               duration: 0.9,
          })
           .yoyo(true)
 
-          const leftWhiskerTl = gsap
+    const leftWhiskerTl = gsap
           .timeline({
               repeat: -1,
-              defaults: { transformOrigin: "0% -50%", ease: "none", duration: S * 2 }
+              defaults: { transformOrigin: "100% 100%", ease: "none", duration: S * 4 }
           })
           .to(leftWhisker, { 
-              rotate: -3,
+              rotate: -15,
               duration: 0.9,
          })
           .yoyo(true)
 
-         // Quazavr movement up & down animation
+// Quazavr movement up & down animation
 
-          const quazavrTL = gsap
+    const quazavrTL = gsap
           .timeline({ 
               repeat: -1, 
               defaults: { transformOrigin: '100% -5%', duration: 1 }
@@ -74,9 +75,9 @@ function animation() {
             })
         .yoyo(true)
 
-        //Spikes animation
+//Spikes animation
 
-        const spike1TL = gsap
+    const spike1TL = gsap
           .timeline({
               repeat: -1,
               defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 2 }
@@ -87,7 +88,7 @@ function animation() {
          })
           .yoyo(true)
 
-          const spike2TL = gsap
+    const spike2TL = gsap
           .timeline({
               repeat: -1,
               defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 2 }
@@ -98,7 +99,7 @@ function animation() {
          })
           .yoyo(true)
 
-          const spike3TL = gsap
+    const spike3TL = gsap
           .timeline({
               repeat: -1,
               defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 2 }
@@ -109,7 +110,7 @@ function animation() {
          })
           .yoyo(true)
 
-          const spike4TL = gsap
+    const spike4TL = gsap
           .timeline({
               repeat: -1,
               defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 2 }
@@ -120,7 +121,7 @@ function animation() {
          })
           .yoyo(true)
 
-          const spike5TL = gsap
+    const spike5TL = gsap
           .timeline({
               repeat: -1,
               defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 2 }
@@ -131,7 +132,7 @@ function animation() {
          })
           .yoyo(true)
 
-          const spike6TL = gsap
+    const spike6TL = gsap
           .timeline({
               repeat: -1,
               defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 2 }
@@ -141,5 +142,29 @@ function animation() {
               duration: 0.9,
          })
           .yoyo(true)
+
+// SpaceGuy animation
+    
+    const spaceGuyTL = gsap
+            .timeline({ 
+                repeat: -1, 
+                defaults: { transformOrigin: "50% 50%", ease: "none", duration: S * 6 }
+             })
+            .to(spaceGuy, {
+                y: -1,
+                rotate: 1
+            })
+            .yoyo(true)
+
+// Checks animation
+
+    const tl = gsap.timeline({repeat: -1})
+
+            tl.to("#checkMark3", 1, { opacity: 0, duration: 1 })
+            tl.to("#checkMark2", 1, { opacity: 0, duration: 1 })
+            tl.to("#checkMark1", 1, { opacity: 0, duration: 1 })
+            tl.to("#checkMark1", 1, { opacity: 1, delay: 0.1 })
+            tl.to("#checkMark2", 1, { opacity: 1, duration: 1 })
+            tl.to("#checkMark3", 1, { opacity: 1, duration: 1 })
 
 }
