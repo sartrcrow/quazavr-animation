@@ -2,14 +2,14 @@ document.addEventListener("DOMContentLoaded", animation)
 
 function animation() {
 	let spikes = []
-	const S = 0.4
+	const S = 0.35
 	const spaceGuy = "#spaceGuy",
 		quazavr = "#quazavr",
 		eye = "#eye"
 
 	const animationObjects = [
-		{ id: "#leftFlipper", transform: "100% 0", speed: S * 2, rotate: 15 },
-		{ id: "#rightFlipper", transform: "100% 0", speed: S * 2, rotate: -15 },
+		{ id: "#leftFlipper", transform: "100% 0", speed: S * 3, rotate: 15 },
+		{ id: "#rightFlipper", transform: "100% 0", speed: S * 3, rotate: -15 },
 		{ id: "#rightWhisker", transform: "0 100%", speed: S * 4, rotate: 15 },
 		{ id: "#leftWhisker", transform: "100% 100%", speed: S * 4, rotate: -15 }
 	]
@@ -54,7 +54,7 @@ function animation() {
 		let spikeTl = gsap
 			.timeline({
 				repeat: -1,
-				defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 2 }
+				defaults: { transformOrigin: "0% 100%", ease: "none", duration: S * 3 }
 			})
 			.to(spikeId, {
 				rotate: 3
@@ -91,10 +91,11 @@ function animation() {
 
 	const tl = gsap
 		.timeline({ repeat: -1 })
+		.to("#checkMark1, #checkMark2, #checkMark3", { opacity: 0, duration: S })
+		.to("#checkMark1", { opacity: 1, duration: S })
+		.to("#checkMark2", { opacity: 1, duration: S })
+		.to("#checkMark3", { opacity: 1, duration: S })
 		.to("#checkMark3", { opacity: 0, duration: S })
 		.to("#checkMark2", { opacity: 0, duration: S })
 		.to("#checkMark1", { opacity: 0, duration: S })
-		.to("#checkMark1", { opacity: 1 })
-		.to("#checkMark2", { opacity: 1, duration: S })
-		.to("#checkMark3", { opacity: 1, duration: S })
 }
