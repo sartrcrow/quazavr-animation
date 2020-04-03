@@ -8,10 +8,10 @@ function animation() {
 		eye = "#eye"
 
 	const animationObjects = [
-		{ id: "#leftFlipper", transform: "100% 0", speed: S * 3, rotate: 15 },
-		{ id: "#rightFlipper", transform: "100% 0", speed: S * 3, rotate: -15 },
-		{ id: "#rightWhisker", transform: "0 100%", speed: S * 4, rotate: 15 },
-		{ id: "#leftWhisker", transform: "100% 100%", speed: S * 4, rotate: -15 }
+		{ id: "#leftFlipper", transform: "100% 0", speed: S * 3, rotate: 15, z: 0.1, rotationZ: 0.01, force3D:true },
+		{ id: "#rightFlipper", transform: "100% 0", speed: S * 3, rotate: -15, z: 0.1, rotationZ: 0.01, force3D:true },
+		{ id: "#rightWhisker", transform: "0 100%", speed: S * 4, rotate: 15, z: 0.1, rotationZ: 0.01, force3D:true },
+		{ id: "#leftWhisker", transform: "100% 100%", speed: S * 4, rotate: -15, z: 0.1, rotationZ: 0.01, force3D:true }
 	]
 
 	// Flippers animation
@@ -37,10 +37,10 @@ function animation() {
 	const quazavrTL = gsap
 		.timeline({
 			repeat: -1,
-			defaults: { duration: 1, ease: "none" }
+			defaults: { duration: 1.3, ease: "none" }
 		})
 		.to(quazavr, {
-			y: 4,
+			y: 12,
 			z: 0.1,
 			rotationZ: 0.01,
 			force3D: true
@@ -89,9 +89,12 @@ function animation() {
 
 	// Checks animation
 
+	const arr = ["#checkMark1, #checkMark2, #checkMark3"]
+	gsap.set(arr, {opacity: 0 })
+
 	const tl = gsap
 		.timeline({ repeat: -1 })
-		.to("#checkMark1, #checkMark2, #checkMark3", { opacity: 0, duration: S })
+		.to(arr, { opacity: 0, duration: S })
 		.to("#checkMark1", { opacity: 1, duration: S })
 		.to("#checkMark2", { opacity: 1, duration: S })
 		.to("#checkMark3", { opacity: 1, duration: S })
