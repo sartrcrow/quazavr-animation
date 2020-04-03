@@ -94,11 +94,8 @@ function animation() {
 
 	const tl = gsap
 		.timeline({ repeat: -1 })
-		.to(arr, { opacity: 0, duration: S })
+		.to(arr, { opacity: 0, duration: S * 3 })
 		.to("#checkMark1", { opacity: 1, duration: S })
 		.to("#checkMark2", { opacity: 1, duration: S })
 		.to("#checkMark3", { opacity: 1, duration: S })
-		.to("#checkMark3", { opacity: 0, duration: S })
-		.to("#checkMark2", { opacity: 0, duration: S })
-		.to("#checkMark1", { opacity: 0, duration: S })
 }
